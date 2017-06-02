@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		
+		<link rel="stylesheet" href="../../css/mui.min.css">
+			<script src="../../js/mui.min.js"></script>
+		<style type="text/css">
+			.mui-bar .mui-icon span {
+				font-size: 18px;
+			}
+			
+			.mui-icon-compose {
+				color: #007aff;
+				float: right;
+				margin-right: 5px;
+			}
+			.mui-icon-checkmarkempty{
+				float:right;
+				color: #007aff;
+			}
+			
+			img {
+				width: 100px;
+				height: 100px;
+				margin: 20px;
+			} 
+			 
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<div class="mui-icon mui-action-back mui-icon-arrowleft mui-icon-back mui-badge-primary mui-badge-inverted"><span>返回</span></div>
+			<h1 id="title" class="mui-title mui-badge-primary mui-badge-inverted">新建周报</h1>
+			<div class="mui-icon mui-icon-checkmarkempty">
+
+			</div>
+		</header>
+
+		<div class="mui-content">
+
+			<form class="mui-input-group">
+				<div class="mui-input-row">
+					<label>已完成</label>
+					<input type="text" class="mui-input-clear" placeholder="已完成的工作" />
+				</div>
+				<div class="mui-input-row">
+					<label>未完成</label>
+					<input type="text" class="mui-input-clear" placeholder="未完成的工作" />
+				</div>
+				<div class="mui-input-row">
+					<label>需要协助</label>
+					<input type="text" class="mui-input-clear" placeholder="有什么需要协助" />
+				</div>
+				<div class="mui-input-row">
+					<label>备注</label> 
+					<input type="text" class="mui-input-clear" placeholder="备注" />
+				</div>
+			</form>
+
+			<img  src="../../images/Assets.xcassets/+.imageset/+@2x.png" />
+		</div> 
+		<script type="text/javascript">
+			mui.init();
+		</script>
+	</body>
+
+</html>

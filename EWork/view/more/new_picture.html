@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../css/cropper.min.css" />
+		<link rel="stylesheet" href="../../css/mui.cropper.css" />
+
+		<style type="text/css">
+			header h1 {
+				font-family: "微软雅黑";
+			}
+			
+			.mui-input-group {
+				margin-top: 30px;
+			}
+			
+			img {
+				width: 100px;
+				height: 100px;
+				margin-top: 20px;
+				margin-left: 20px;
+			}
+			
+			label {
+				font-size: 18px;
+				font-weight: 500;
+			}
+			
+			input {
+				font-weight: 500;
+			}
+			
+			.mui-input-group .mui-pull-left {
+				line-height: 40px;
+				font-size: 18px;
+				font-weight: 500;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<button class="mui-btn mui-action-back mui-btn-link mui-btn-nav mui-pull-left">
+				<span class="mui-icon mui-icon-left-nav"></span>
+				返回
+			</button>
+			<button class="mui-btn mui-btn-link mui-btn-nav mui-pull-right">
+				<span class="mui-icon mui-icon-checkmarkempty"></span>
+			</button>
+			<h1 class="mui-title" style="color: #007AFF;">新建图片</h1>
+		</header>
+
+		<div class="mui-content">
+
+			<form class="mui-input-group">
+				<div class="mui-input-row">
+					<label style="letter-spacing: 20px;">标题</label>
+					<input type="text" class="mui-input-clear" placeholder="为图片起个名字吧" />
+				</div>
+				<div class="mui-input-row">
+					<label style="letter-spacing: 20px;">描述</label>
+					<input type="text" class="mui-input-clear" placeholder="介绍一下图片吧" />
+				</div>
+				<div class="mui-input-row">
+					<label>发布者</label>
+					<input type="text" class="mui-input-clear" />
+				</div>
+				<div class="mui-input-row">
+					<label style="letter-spacing: 20px;">时间</label>
+					<input type="text" class="mui-input-clear" />
+				</div>
+				<div class="mui-input-row">
+					<label style="letter-spacing: 20px;">地点</label>
+					<span class="mui-pull-left">点击获取位置</span>
+				</div>
+			</form>
+
+			<a href="#cropper-sheet">
+				<img id="image" src="../../images/Assets.xcassets/+.imageset/+@2x.png" />
+			</a>
+
+			<!--选择照片-->
+			<div id="cropper-sheet" class="mui-popover mui-popover-bottom mui-popover-action">
+				<!-- 可选择菜单 -->
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a data-type="camera">拍照</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a data-type="gallery">相册</a>
+					</li>
+				</ul>
+				<!-- 取消菜单 -->
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a href="#cropper-sheet"><b style="color: #ff0000;">取消</b></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+
+		<script type="text/javascript" src="../../js/cropper.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui('#cropper-sheet').on('tap', '.mui-table-view-cell > a', function() {
+				var type = this.getAttribute('data-type');
+				mui("#cropper-sheet").popover('hide');
+				switch(type) {
+					case 'camera':
+						clickCamera();
+						break;
+					case 'gallery':
+					clickGallery();
+						break;
+					default:
+						break;
+				}
+			})
+			//从相机中选取图片
+			function clickCamera() {
+				var c = plus.camera.getCamera();
+				c.captureImage(function(e) {
+					plus.io.resolveLocalFileSystemURL(e, function(entry) {
+						var path = entry.toLocalURL();
+
+						plus.nativeUI.showWaiting();
+						//压缩图片到内存
+						plus.zip.compressImage({
+							src: path,
+							dst: 'compresspic/' + path,
+							quality: 20,
+							overwrite: true
+						}, function() {
+							var relativePath = 'compresspic/' + path;
+							plus.io.resolveLocalFileSystemURL(relativePath, function(entry) {
+								
+								var compress_path = entry.toLocalURL();
+								document.getElementById('image').src = compress_path;
+								plus.nativeUI.closeWaiting();
+							}, function(e) {
+								console.log("error");
+							});
+						}, function(error) {
+							console.log("压缩error");
+						});
+
+					}, function(e) {
+						mui.toast("读取拍照文件错误" + e.message);
+					});
+				})
+			};
+			//从相册中选取图片
+			var photos;
+			function clickGallery() {
+				
+				plus.gallery.pick(function(path) {
+						plus.nativeUI.showWaiting();
+						plus.zip.compressImage({
+							src: path,
+							dst: 'compresspic/' + path,
+							quality: 20,
+							overwrite: true
+						}, function() { 
+							var relativePath = 'compresspic/' + path;
+							plus.io.resolveLocalFileSystemURL(relativePath, function(entry) {
+								 
+								var compress_path = entry.toLocalURL();
+								document.getElementById('image').src = compress_path;
+								plus.nativeUI.closeWaiting();
+							}, function(e) {
+								console.log("error");
+							});
+						}, function(error) {
+							console.log("压缩error");
+						});
+					}, function(e) {
+						console.log("获取照片失败");
+					});
+				}
+		</script>
+	</body>
+
+</html>
