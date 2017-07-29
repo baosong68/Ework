@@ -1,7 +1,8 @@
 //添加监听事件，获得全文展示
 var result;
 var thePage = 1;
-var this_phoneNum = localStorage.getItem('phoneNum');
+var this_phoneNum;
+ 
 /*
 mui('.mui-table-view').on('tap', '.mui-table-view-cell', function() {
 	var talk_content = this.getElementsByTagName('p');
@@ -13,7 +14,9 @@ mui('.mui-table-view').on('tap', '.mui-table-view-cell', function() {
 	}
 });
 */
-function getData(thePage, dateTime) {
+
+function getData(thePage, dateTime) { 
+	this_phoneNum = localStorage.getItem('phoneNum');
 	
 	//请求数据  
 	mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/search/jh_circle_moments', {
@@ -30,9 +33,11 @@ function getData(thePage, dateTime) {
 			'content-Type': 'application/json'
 		},
 		success: function(data) {
+			var table = document.getElementById('table');
+			table.innerHTML = "";
 			if(data.flag == '200') {
 
-				var table = document.getElementById('table');
+				
 
 				table.innerHTML = "";
 				result = data.result;
@@ -40,7 +45,7 @@ function getData(thePage, dateTime) {
 					var li = document.createElement('li');
 					li.className = 'mui-table-view-cell';
 					li.setAttribute('id',result[i].id);
-					li.innerHTML = '<div class="head"> <img class="headImg" src="' + result[i].personlogo + '"/> <div class="username">' +
+					li.innerHTML = '<div id="mainBody"><div class="head"> <img class="headImg" src="' + result[i].personlogo + '"/> <div class="username">' +
 						result[i].name + '</div> </div>' + '<div class="content"> <p class="talk">' + result[i].describe + '</p> </div>';
 
 					var numOfPhotos = result[i].photourls.length;
@@ -55,12 +60,12 @@ function getData(thePage, dateTime) {
 						} else {
 							li.innerHTML += '<div class="photos">';
 							for(var j = 0; j < numOfPhotos; j++) {
-								li.innerHTML += '<img class="mui-icon"  src="' + result[i].photourls[j].url + '" data-preview-src="" data-preview-group="' + i * thePage + '"/>';
+								li.innerHTML += '<img class="mui-icon" style="height:100px"  src="' + result[i].photourls[j].url + '" data-preview-src="" data-preview-group="' + i * thePage + '"/>';
 							}
 							li.innerHTML += '</div>';
 						}
 					}
-					li.innerHTML += '<div class="date">' + result[i].date + '</div>';
+					li.innerHTML += '<div class="date">' + result[i].date + '</div></div>';
 					
 					li.innerHTML += '<div class="bottom"><div class="like"><img class="like_img" src="../../images/Assets.xcassets/heart.imageset/heart@2x.png" />'+
 								'<div class="num_like">'+result[i].laud_count+'</div></div>'+
@@ -95,11 +100,13 @@ function pulldownGetData(Page, dateTime) {
 			'content-Type': 'application/json'
 		},
 		success: function(data) { 
+			var table = document.getElementById('table');
+			table.innerHTML = "";
 			if(data.flag == '200') {
 
-				var table = document.getElementById('table');
+				
 
-				table.innerHTML = "";
+				
 			    result = data.result;
 				for(var i = 0; i < result.length; i++) {
 					var li = document.createElement('li');
@@ -120,7 +127,7 @@ function pulldownGetData(Page, dateTime) {
 						} else {
 							li.innerHTML += '<div class="photos">';
 							for(var j = 0; j < numOfPhotos; j++) {
-								li.innerHTML += '<img class="mui-icon"  src="' + result[i].photourls[j].url + '" data-preview-src="" data-preview-group="' + i * thePage + '"/>';
+								li.innerHTML += '<img class="mui-icon" style="height:100px" src="' + result[i].photourls[j].url + '" data-preview-src="" data-preview-group="' + i * thePage + '"/>';
 							}
 							li.innerHTML += '</div>';
 						}
@@ -172,7 +179,7 @@ function pullupGetData(Page, dateTime) {
 					var li = document.createElement('li');
 					li.className = 'mui-table-view-cell';
 					li.setAttribute('id',result[i].id);
-					li.innerHTML = '<div class="head"> <img class="headImg" src="' + result[i].personlogo + '"/> <div class="username">' +
+					li.innerHTML = '<div id="mainBody> <div class="head"> <img class="headImg" src="' + result[i].personlogo + '"/> <div class="username">' +
 						result[i].name + '</div> </div>' + '<div class="content"> <div class="talk mui-ellipsis-2">' + result[i].describe + '</div>';
 
 					var numOfPhotos = result[i].photourls.length;
@@ -187,12 +194,12 @@ function pullupGetData(Page, dateTime) {
 						} else {
 							li.innerHTML += '<div class="photos">';
 							for(var j = 0; j < numOfPhotos; j++) {
-								li.innerHTML += '<img class="mui-icon"  src="' + result[i].photourls[j].url + '" data-preview-src="" data-preview-group="' + i * thePage + '"/>';
+								li.innerHTML += '<img class="mui-icon" style="height:100px" src="' + result[i].photourls[j].url + '" data-preview-src="" data-preview-group="' + i * thePage + '"/>';
 							}
 							li.innerHTML += '</div>';
 						}
 					}
-					li.innerHTML += '<div class="date">' + result[i].date + '</div>';
+					li.innerHTML += '<div class="date">' + result[i].date + '</div></div>';
 					li.innerHTML += '<div class="bottom"><div class="like"><img class="like_img" src="../../images/Assets.xcassets/heart.imageset/heart@2x.png" />'+
 								'<div class="num_like">'+result[i].laud_count+'</div></div>'+
 								'<div class="comment"><div class="comment_img">'+result[i].comment_count+'</div><img class="num_comment" src="../../images/Assets.xcassets/comment_fill.imageset/comment_fill@2x.png"  />'+

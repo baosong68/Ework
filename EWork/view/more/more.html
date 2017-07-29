@@ -103,15 +103,14 @@
 		<div class="mui-action-back closeBtn">
 			<span class="mui-icon mui-icon-closeempty"></span>
 		</div>
-
-		<script src="js/mui.min.js"></script>
+ 
 		<script type="text/javascript">
 			mui.init();
 			mui.back = function() {
 				// 隐藏弹出层
 				plus.webview.currentWebview().hide();
 				// 隐藏遮罩
-				plus.webview.getWebviewById('mask').close();
+				//plus.webview.getWebviewById('mask').close();
 			}
 		/**
 		 * 更多的页面跳转问题
@@ -149,7 +148,8 @@
 					break;
 			}
 			mui.openWindow({
-				url: target, 
+				url: target,
+				id:target,
 			});
 		});
 		</script>

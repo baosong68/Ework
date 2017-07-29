@@ -86,12 +86,12 @@
 			if(targetTab == moreTab){
 				if(window.plus){
 					//创建mask遮罩
-					plus.webview.create("","mask",{
-						mask:"rgba(0,0,0,0.4)",
-						background:"transparent"
-					}).show();
+//					plus.webview.create("","mask",{
+//						mask:"rgba(0,0,0,0.4)",
+//						background:"transparent"
+//					}).show();
 					//打开弹层
-					plus.webview.show(moreWebview,"slide-in-bottom",30);
+					plus.webview.show(moreWebview,"slide-in-bottom",10);
 					
 				}else{
 					mui.alert("请在html5+引擎环境使用");

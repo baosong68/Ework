@@ -71,23 +71,23 @@
 				</li>
 			</ul>
 
-			<ul class="mui-table-view my">
-				<li class="mui-table-view-cell">
+			<ul id="choice" class="mui-table-view my">
+				<li id="scan.html" class="mui-table-view-cell">
 					<div class='mui-navigate-right'>
 						<img src="../../images/Assets.xcassets/scanning.imageset/scanning@2x.png" /><span>扫一扫</span>
 					</div>
 				</li>
-				<li class="mui-table-view-cell">
+				<li id="card.html" class="mui-table-view-cell">
 					<a class='mui-navigate-right'>
 						<img src="../../images/Assets.xcassets/card.imageset/card@2x.png" /><span>我的名片</span>
 					</a>
 				</li>
-				<li class="mui-table-view-cell">
+				<li id="my_dynamics.html" class="mui-table-view-cell">
 					<a class='mui-navigate-right'>
 						<img src="../../images/Assets.xcassets/Tabbar/moment.imageset/moment@2x.png" /><span>我的动态</span>
 					</a>
 				</li>
-				<li class="mui-table-view-cell">
+				<li id="find_friends.html" class="mui-table-view-cell">
 					<a class='mui-navigate-right'>
 						<img src="../../images/Assets.xcassets/find.imageset/find@2x.png" /><span>搜索好友</span>
 					</a>
@@ -105,7 +105,12 @@
 		</div>
 	</body>
 	<script type="text/javascript">
-		mui.init();
+		mui.init({
+			preloadPages: [{
+				url: 'scan.html',
+				id: 'scan.html'
+			}]
+		});
 		mui.plusReady(function() {
 			getPersonInfo();
 		});
@@ -120,7 +125,7 @@
 					objectID: this_phoneNum
 				},
 				dataType: 'json',
-				type: 'get',
+				type: 'post',
 				timeout: 10000,
 				success: function(data) {
 					 
@@ -144,6 +149,13 @@
 		btn_person.addEventListener('tap', function() {
 			mui.openWindow({
 				url: 'person.html',
+			});
+		});
+		mui('#choice').on('tap','.mui-table-view-cell',function(){
+			var id = this.getAttribute('id');
+			mui.openWindow({
+				id:id,
+				url:id,
 			});
 		});
 	</script>

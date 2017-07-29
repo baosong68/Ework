@@ -65,13 +65,12 @@
 						<button class="mui-btn mui-btn-primary mui-btn-outlined">0回复</button>
 
 					</li>-->
-					
 				</ul>
 			</div> 
 		</div> 
 		
 		<script src="js/mui.min.js"></script> 
-		<script type="text/javascript" src="../../js/geren_request.js" ></script>
+		<script type="text/javascript" src="../../js/request.js" ></script>
 		
 		<script>
 			mui.init({
@@ -87,15 +86,14 @@
 				}
 			});
 			
-			mui('.mui-table-view').on('tap','.mui-table-view-cell',function(){ 
+			mui('.mui-table-view').on('tap','.mui-table-view-cell',function(){
+			
 				mui.openWindow({
 					url:'request_detail.html',
 				});
 				
 			});
-			window.addEventListener('refresh',function(){
-				pullDownGetData();
-			})
+			
 			mui.plusReady(function(){
 				pullDownGetData();
 			})

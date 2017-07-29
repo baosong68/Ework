@@ -7,34 +7,23 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		
+
 		<link rel="stylesheet" href="../../css/mui.min.css">
-			<script src="../../js/mui.min.js"></script>
+		<script src="../../js/mui.min.js"></script>
 		<style>
 			.img {
 				max-width: 180px;
 				max-height: 180px;
 				margin: 5px;
 			}
-			.mui-content .mui-btn{
-				margin-top: 10px;
-				color: #CCCCCC;
-				font-size: 16px;
-				margin-right: 3px;
-			}
-			 
+			
 			.mui-search {
 				width: 80%;
-				height: 40px;
 				float: left;
-				margin: 5px; 
+				margin: 5px;
+				line-height: 35px;
 			}
-			.mui-search .mui-btn{
-				line-height: 40px;
-			}
-			.mui-scroll{
-				margin-top: 10px;
-			}
+			
 			.cancle {
 				float: left;
 				margin: 10px;
@@ -64,7 +53,10 @@
 				font-size: 14px;
 			}
 			
-			 
+			.mui-scroll {
+				margin-top: 10px;
+			}
+			
 			.line {
 				float: left;
 				clear: left;
@@ -77,6 +69,7 @@
 			
 			.title {
 				color: #007aff;
+				padding: 10px;
 			}
 			
 			.imgs {
@@ -89,10 +82,23 @@
 				background: #EFEFF4;
 			}
 			
-			
 			.mui-table-view-cell {
 				background: white;
 				margin-bottom: 5px;
+			}
+			
+			.photos {
+				float: left;
+				clear: left;
+			}
+			
+			.mui-table-view .mui-table-view-cell .mui-icon {
+				max-width: 200px;
+				max-width: 200px;
+				float: left;
+				margin: 3px;
+				width: 30%;
+				height: 150px;
 			}
 		</style>
 	</head>
@@ -100,24 +106,22 @@
 	<body>
 		<!--下拉刷新容器-->
 		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
-			<div class="mui-input-row mui-search mui-pull-left" >
-					<input type="search" class="mui-input-clear" placeholder="搜索周报"/>
-					
-				</div>
-				<button class="mui-btn mui-btn-link mui-btn-nav mui-pull-right">取消</button>
-				
+			<div class="mui-input-row mui-search">
+				<input type="search" class="mui-input-clear" placeholder="搜索周报" />
+			</div>
+			<div class="cancle">取消</div>
 			<div class="mui-scroll">
 				<!--数据列表-->
 
-				<ul class="mui-table-view mui-table-view-chevron">
-					<li class="mui-table-view-cell">
+				<ul id="table" class="mui-table-view mui-table-view-chevron">
+					<!--<li class="mui-table-view-cell">
 						<div class="first_line">
 							<img class="headImg" src="../../images/lunnbo2.jpg" />
 							<div class="username">刘国奇</div>
 							<div class="date">5月12日</div>
 						</div>
 						<div class="second">
-							<span class="line"><span class="title">已完成</span> 只有文字</span>
+							<span class="line"><span class="title">已完成</span> 只有文字weishe威威威威巨大石块来决定了撒asdsadsadassssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</span>
 							<span class="line"><span class="title">未完成</span> 啊倒萨倒萨打算</span>
 							<span class="line"><span class="title">需协调</span> 只有文字</span>
 							<span class="line"><span class="title">备注</span> 暂无</span>
@@ -126,79 +130,11 @@
 							<img class="img" src="../../images/lunbo3.jpg" />
 						</div>
 					</li>
-					
-					<li class="mui-table-view-cell">
-						<div class="first_line">
-							<img class="headImg" src="../../images/lunnbo2.jpg" />
-							<div class="username">刘国奇</div>
-							<div class="date">5月12日</div>
-						</div>
-						<div class="second">
-							<span class="line"><span class="title">已完成</span> 只有文字</span>
-							<span class="line"><span class="title">未完成</span> 啊倒萨倒萨打算</span>
-							<span class="line"><span class="title">需协调</span> 只有文字</span>
-							<span class="line"><span class="title">备注</span> 暂无</span>
-						</div>
-						<div class="imgs">
-							<img class="img" src="../../images/lunbo3.jpg" />
-						</div>
-					</li>
-					
-					<li class="mui-table-view-cell">
-						<div class="first_line">
-							<img class="headImg" src="../../images/lunnbo2.jpg" />
-							<div class="username">刘国奇</div>
-							<div class="date">5月12日</div>
-						</div>
-						<div class="second">
-							<span class="line"><span class="title">已完成</span> 只有文字</span>
-							<span class="line"><span class="title">未完成</span> 啊倒萨倒萨打算</span>
-							<span class="line"><span class="title">需协调</span> 只有文字</span>
-							<span class="line"><span class="title">备注</span> 暂无</span>
-						</div>
-						<div class="imgs">
-							<img class="img" src="../../images/lunbo3.jpg" />
-						</div>
-					</li>
-					
-					<li class="mui-table-view-cell">
-						<div class="first_line">
-							<img class="headImg" src="../../images/lunnbo2.jpg" />
-							<div class="username">刘国奇</div>
-							<div class="date">5月12日</div>
-						</div>
-						<div class="second">
-							<span class="line"><span class="title">已完成</span> 只有文字</span>
-							<span class="line"><span class="title">未完成</span> 啊倒萨倒萨打算</span>
-							<span class="line"><span class="title">需协调</span> 只有文字</span>
-							<span class="line"><span class="title">备注</span> 暂无</span>
-						</div>
-						<div class="imgs">
-							<img class="img" src="../../images/lunbo3.jpg" />
-						</div>
-					</li>
-					
-					<li class="mui-table-view-cell">
-						<div class="first_line">
-							<img class="headImg" src="../../images/lunnbo2.jpg" />
-							<div class="username">刘国奇</div>
-							<div class="date">5月12日</div>
-						</div>
-						<div class="second">
-							<span class="line"><span class="title">已完成</span> 只有文字</span>
-							<span class="line"><span class="title">未完成</span> 啊倒萨倒萨打算</span>
-							<span class="line"><span class="title">需协调</span> 只有文字</span>
-							<span class="line"><span class="title">备注</span> 暂无</span>
-						</div>
-						<div class="imgs">
-							<img class="img" src="../../images/lunbo3.jpg" />
-						</div>
-					</li>
-					
-					
+				 -->
 				</ul>
 			</div>
 		</div>
+		<script type="text/javascript" src="../../js/geren_week_paper.js"></script>
 		<script>
 			mui.init({
 				pullRefresh: {
@@ -212,78 +148,80 @@
 					}
 				}
 			});
-			mui('.mui-table-view').on('tap','.mui-table-view-cell',function(){
+			mui.plusReady(function() {
+				plus.nativeUI.showWaiting();
+				pullDownGetData();
+			});
+			mui('.mui-table-view').on('tap', '.mui-table-view-cell', function() {
 				mui.openWindow({
-					url:'week_paper_detail.html',
+					url: 'day_paper_detail.html',
 				});
+			});
+
+			window.addEventListener('refresh', function() {
+				pullDownGetData();
 			});
 			/**
 			 * 下拉具体业务的实现
 			 */
 			function pulldownRefresh() {
-				setTimeout(function() {
-					//  getMgEAStatus();//实现更新页面的操作  
-					mui.alert("refresh");
-					mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed  
-				}, 1500);
+				pullDownGetData();
+				mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+
 			}
-			/*	mui('.mui-scroll-wrapper').scroll({
-					deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
-				});*/
+
 			/**
 			 * 上拉加载具体业务实现
 			 */
 			function pullupRefresh() {
-				setTimeout(function() {
-					//  getMgEAStatus();//实现更新页面的操作  
-					mui.alert("refresh");
-					mui('#pullrefresh').pullRefresh().endPullupToRefresh(); //refresh completed  
-				}, 1500);
+				pullUpGetData()
+				mui('#pullrefresh').pullRefresh().endPullupToRefresh(); //refresh completed  
+
 			}
 
 			/*
-			function pulldownRefresh() {
-				setTimeout(function() {
-					var table = document.body.querySelector('.mui-table-view');
-					var cells = document.body.querySelectorAll('.mui-table-view-cell');
-					for (var i = cells.length, len = i + 3; i < len; i++) {
-						var li = document.createElement('li');
-						li.className = 'mui-table-view-cell';
-						li.innerHTML = '<a class="mui-navigate-right">Item ' + (i + 1) + '</a>';
-						//下拉刷新，新纪录插到最前面；
-						table.insertBefore(li, table.firstChild);
+					function pulldownRefresh() {
+						setTimeout(function() {
+							var table = document.body.querySelector('.mui-table-view');
+							var cells = document.body.querySelectorAll('.mui-table-view-cell');
+							for (var i = cells.length, len = i + 3; i < len; i++) {
+								var li = document.createElement('li');
+								li.className = 'mui-table-view-cell';
+								li.innerHTML = '<a class="mui-navigate-right">Item ' + (i + 1) + '</a>';
+								//下拉刷新，新纪录插到最前面；
+								table.insertBefore(li, table.firstChild);
+							}
+							mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+						}, 1500);
 					}
-					mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
-				}, 1500);
-			}
-			var count = 0;
-		 
-			function pullupRefresh() {
-				setTimeout(function() {
-					mui('#pullrefresh').pullRefresh().endPullupToRefresh((++count > 2)); //参数为true代表没有更多数据了。
-					var table = document.body.querySelector('.mui-table-view');
-					var cells = document.body.querySelectorAll('.mui-table-view-cell');
-					for (var i = cells.length, len = i + 20; i < len; i++) {
-						var li = document.createElement('li');
-						li.className = 'mui-table-view-cell';
-						li.innerHTML = '<a class="mui-navigate-right">Item ' + (i + 1) + '</a>';
-						table.appendChild(li);
+					var count = 0;
+				 
+					function pullupRefresh() {
+						setTimeout(function() {
+							mui('#pullrefresh').pullRefresh().endPullupToRefresh((++count > 2)); //参数为true代表没有更多数据了。
+							var table = document.body.querySelector('.mui-table-view');
+							var cells = document.body.querySelectorAll('.mui-table-view-cell');
+							for (var i = cells.length, len = i + 20; i < len; i++) {
+								var li = document.createElement('li');
+								li.className = 'mui-table-view-cell';
+								li.innerHTML = '<a class="mui-navigate-right">Item ' + (i + 1) + '</a>';
+								table.appendChild(li);
+							}
+						}, 1500);
 					}
-				}, 1500);
-			}
-			if (mui.os.plus) {
-				mui.plusReady(function() {
-					setTimeout(function() {
-						mui('#pullrefresh').pullRefresh().pullupLoading();
-					}, 1000);
+					if (mui.os.plus) {
+						mui.plusReady(function() {
+							setTimeout(function() {
+								mui('#pullrefresh').pullRefresh().pullupLoading();
+							}, 1000);
 
-				});
-			} else {
-				mui.ready(function() {
-					mui('#pullrefresh').pullRefresh().pullupLoading();
-				});
-			}
-			*/
+						});
+					} else {
+						mui.ready(function() {
+							mui('#pullrefresh').pullRefresh().pullupLoading();
+						});
+					}
+					*/
 		</script>
 	</body>
 

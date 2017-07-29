@@ -9,29 +9,29 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
 		<link rel="stylesheet" href="../../css/mui.min.css">
-			<script src="../../js/mui.min.js"></script>
+		<script src="../../js/mui.min.js"></script>
 		<style>
 			.mui-bar .mui-icon span {
 				font-size: 18px;
 			}
-			.mui-icon-compose{
-				color:#007aff;
+			
+			.mui-icon-compose {
+				color: #007aff;
 				float: right;
-				margin-right:5px;
+				margin-right: 5px;
 			}
-			 
 		</style>
 	</head>
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<div class="mui-icon mui-action-back mui-icon-arrowleft mui-icon-back mui-badge-primary mui-badge-inverted"><span>返回</span></div>
-			<h1 id="title" class="mui-title mui-badge-primary mui-badge-inverted">周报</h1>
-			<div id="add" class="mui-icon mui-icon-compose"></div>
+
+			<h1 id="title" class="mui-title mui-badge-primary mui-badge-inverted">请示</h1>
+			<!--<div id="add" class="mui-icon mui-icon-compose"></div>-->
 		</header>
 		<div class="mui-content"></div>
 	</body>
-	<script type="text/javascript" src="../../js/week_paper.js" ></script>
 	<script type="text/javascript">
 		//启用双击监听
 		mui.init({
@@ -39,20 +39,15 @@
 				doubletap: true
 			},
 			subpages: [{
-				url: 'week_paper_sub.html',
-				id: 'week_paper_sub.html',
+				url: 'request_sub.html',
+				id: 'request_sub.html',
 				styles: {
 					top: '45px',
 					bottom: '0px',
 				}
 			}]
 		});
-		document.getElementById('add').onclick=function(){
-			mui.openWindow({
-				url:'new_week_paper.html',
-			});
-		}
-	
+		 
 		var contentWebview = null;
 		document.querySelector('header').addEventListener('doubletap', function() {
 			if(contentWebview == null) {

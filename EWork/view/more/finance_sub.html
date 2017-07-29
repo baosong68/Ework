@@ -7,9 +7,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		
+
 		<link rel="stylesheet" href="../../css/mui.min.css">
-			<script src="../../js/mui.min.js"></script>
+		<script src="../../js/mui.min.js"></script>
 		<style>
 			.img {
 				max-height: 48px;
@@ -119,20 +119,50 @@
 					}
 				}
 			});
-		mui('.mui-table-view').on('tap','.mui-table-view-cell',function(){
-			
+			mui.plusReady(function(){
+				pulldownGetData();
+			})
+			mui('.mui-table-view').on('tap', '.mui-table-view-cell', function() {
+
 				mui.openWindow({
-					url:'finance_detail.html',
+					url: 'finance_detail.html',
 				});
 			});
 			//上拉加载
-			function pullupRefresh(){
-				 this.endPullupToRefresh(true);
-				
+			function pullupRefresh() {
+				this.endPullupToRefresh(true);
+
 			}
-			function pulldownRefresh(){
+
+			function pulldownRefresh() {
+				pulldownGetData();
 				mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
-				
+
+			}
+
+			var companyId = localStorage.getItem('companyId');
+			var phoneNum = localStorage.getItem('phoneNum');
+
+			function pulldownGetData() {
+				mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/Caiwu/getcaiwugeren/', {
+					data: {
+							userid:phoneNum,
+							companyid:companyId,
+							startTime:'2016-07-07 12:01:11',
+							endtime:'2016-07-27 12:01:11',
+							typeid:'1',
+							page:10,
+							num:1
+					},
+					type:'post',
+					timeout:10000,
+					success:function(data){
+						mui.alert(JSON.stringify(data));
+					},
+					error:function(){
+						mui.alert("财务有错");
+					}
+				})
 			}
 		</script>
 	</body>

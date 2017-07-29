@@ -94,7 +94,8 @@
 			"css/mui.min.css",
 			"js/mui.min.js",
 			"fonts/mui.ttf",
-			"js/md5.js"
+			"js/md5.js",
+			"js/userInfo.js"
 		],
 		"refer": [
 			"view/index.html",
@@ -262,7 +263,8 @@
 			"images/icon/tabbar_log.png",
 			"images/icon/tabbar_audit.png",
 			"images/icon/tabbar_work_arrange.png",
-			"js/mui.min.js"
+			"js/mui.min.js",
+			"fonts/mui.ttf"
 		],
 		"refer": [
 			"view/more/day_paper_main.html",
@@ -272,7 +274,8 @@
 			"view/more/notepad_main.html",
 			"view/more/reminder_main.html",
 			"view/more/finance_main.html",
-			"view/more/examination_main.html"
+			"view/more/examination_main.html",
+			"view/more/sign.html"
 		]
 	},
 	"view/mine/mine.html": {
@@ -284,10 +287,12 @@
 			"images/Assets.xcassets/scanning.imageset/scanning@2x.png",
 			"images/lunnbo2.jpg",
 			"css/mui.min.css",
-			"js/mui.min.js"
+			"js/mui.min.js",
+			"fonts/mui.ttf"
 		],
 		"refer": [
-			"view/mine/person.html"
+			"view/mine/person.html",
+			"view/mine/scan.html"
 		]
 	},
 	"view/dynamics/dynamics.html": {
@@ -300,7 +305,8 @@
 			"js/mui.previewimage.js",
 			"js/dynamics.js",
 			"images/Assets.xcassets/comment_fill.imageset/comment_fill@2x.png",
-			"images/Assets.xcassets/heart.imageset/heart@2x.png"
+			"images/Assets.xcassets/heart.imageset/heart@2x.png",
+			"js/userInfo.js"
 		],
 		"refer": [
 			"view/dynamics/new_dynamics.html",
@@ -331,7 +337,11 @@
 		"resources": [
 			"images/lunbo3.jpg",
 			"css/mui.min.css",
-			"images/lunnbo2.jpg"
+			"images/lunnbo2.jpg",
+			"js/mui.min.js",
+			"js/day_paper.js",
+			"js/geren_day_paper.js",
+			"js/userInfo.js"
 		],
 		"refer": [
 			"view/more/day_paper_detail.html"
@@ -342,7 +352,8 @@
 			"view/more/day_paper_sub.html",
 			"css/mui.min.css",
 			"view/more/more.html",
-			"js/mui.min.js"
+			"js/mui.min.js",
+			"js/day_paper.js"
 		],
 		"refer": [
 			"view/more/day_paper_sub.html",
@@ -352,7 +363,10 @@
 	},
 	"view/more/week_paper_main.html": {
 		"resources": [
-			"view/more/week_paper_sub.html"
+			"view/more/week_paper_sub.html",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"js/week_paper.js"
 		],
 		"refer": [
 			"view/more/week_paper_sub.html",
@@ -362,7 +376,15 @@
 	"view/more/week_paper_sub.html": {
 		"resources": [
 			"images/lunbo3.jpg",
-			"css/mui.min.css"
+			"css/mui.min.css",
+			"images/lunnbo2.jpg",
+			"js/week_paper.js",
+			"js/mui.min.js",
+			"js/geren_day_paper.js",
+			"js/geren_week_paper.js"
+		],
+		"refer": [
+			"view/more/day_paper_detail.html"
 		]
 	},
 	"view/more/pictrue_main.html": {
@@ -379,7 +401,8 @@
 	"view/more/request_main.html": {
 		"resources": [
 			"view/more/request_sub.html",
-			"css/mui.min.css"
+			"css/mui.min.css",
+			"js/mui.min.js"
 		],
 		"refer": [
 			"view/more/request_sub.html",
@@ -389,7 +412,8 @@
 	"view/more/notepad_main.html": {
 		"resources": [
 			"css/mui.min.css",
-			"view/more/notepad_sub.html"
+			"view/more/notepad_sub.html",
+			"js/mui.min.js"
 		],
 		"refer": [
 			"view/more/notepad_sub.html",
@@ -408,7 +432,8 @@
 	},
 	"view/more/examination_sub.html": {
 		"resources": [
-			"css/mui.min.css"
+			"css/mui.min.css",
+			"images/lunbo1.jpg"
 		],
 		"refer": [
 			"view/more/request_detail.html",
@@ -418,16 +443,19 @@
 	"view/more/finance_main.html": {
 		"resources": [
 			"view/more/finance_sub.html",
-			"css/mui.min.css"
+			"css/mui.min.css",
+			"js/mui.min.js"
 		],
 		"refer": [
-			"view/more/finance_sub.html"
+			"view/more/finance_sub.html",
+			"view/more/new_finance.html"
 		]
 	},
 	"view/more/examination_main.html": {
 		"resources": [
 			"view/more/examination_sub.html",
-			"css/mui.min.css"
+			"css/mui.min.css",
+			"js/mui.min.js"
 		],
 		"refer": [
 			"view/more/examination_sub.html"
@@ -435,7 +463,9 @@
 	},
 	"view/more/finance_sub.html": {
 		"resources": [
-			"css/mui.min.css"
+			"css/mui.min.css",
+			"images/lunbo1.jpg",
+			"js/mui.min.js"
 		],
 		"refer": [
 			"view/more/request_detail.html",
@@ -456,10 +486,16 @@
 			"images/tabbar_log.png",
 			"images/tabbar_timeoff.png",
 			"css/mui.min.css",
-			"js/mui.min.js"
+			"js/mui.min.js",
+			"fonts/mui.ttf"
 		],
 		"refer": [
-			"view/company/article.html"
+			"view/company/article.html",
+			"view/company/day_paper_main.html",
+			"view/company/week_paper_main.html",
+			"view/company/request_main.html",
+			"view/company/sign.html",
+			"view/company/pictrue_main.html"
 		]
 	},
 	"view/more/pictrue_sub.html": {
@@ -467,7 +503,9 @@
 			"images/lunbo3.jpg",
 			"css/mui.min.css",
 			"images/lunbo1.jpg",
-			"js/mui.min.js"
+			"js/mui.min.js",
+			"js/picture.js",
+			"js/geren_picture.js"
 		],
 		"refer": [
 			"view/more/pictrue_detail.html"
@@ -477,7 +515,8 @@
 		"resources": [
 			"css/mui.min.css",
 			"js/mui.min.js",
-			"images/lunnbo2.jpg"
+			"images/lunnbo2.jpg",
+			"images/lunbo1.jpg"
 		]
 	},
 	"reset_password.html": {
@@ -489,7 +528,8 @@
 		"resources": [
 			"images/Assets.xcassets/QRCode.imageset/QRCode@2x.png",
 			"images/Assets.xcassets/AppIcon.appiconset/logo_180.png",
-			"css/mui.min.css"
+			"css/mui.min.css",
+			"js/mui.min.js"
 		]
 	},
 	"view/more/request_detail.html": {
@@ -503,25 +543,39 @@
 	"view/more/request_sub.html": {
 		"refer": [
 			"view/more/request_detail.html"
+		],
+		"resources": [
+			"css/mui.min.css",
+			"images/lunbo1.jpg",
+			"js/request.js",
+			"js/mui.min.js",
+			"js/geren_request.js"
 		]
 	},
 	"view/more/finance_detail.html": {
 		"resources": [
 			"images/Assets.xcassets/comment.imageset/comment@2x.png",
 			"css/mui.min.css",
-			"images/Assets.xcassets/AppIcon.appiconset/logo_80.png"
+			"images/Assets.xcassets/AppIcon.appiconset/logo_80.png",
+			"js/mui.min.js"
 		]
 	},
 	"view/more/new_day_paper.html": {
 		"resources": [
-			"css/mui.min.css"
+			"css/mui.min.css",
+			"images/Assets.xcassets/+.imageset/+@2x.png",
+			"js/mui.min.js",
+			"js/new_day_paper.js"
 		]
 	},
 	"view/more/new_week_paper.html": {
 		"resources": [
 			"images/Assets.xcassets/+.imageset/addHeadIcon.png",
 			"css/mui.min.css",
-			"images/Assets.xcassets/+.imageset/+@2x.png"
+			"images/Assets.xcassets/+.imageset/+@2x.png",
+			"js/mui.min.js",
+			"js/new_day_paper.js",
+			"js/new_week_paper.js"
 		]
 	},
 	"view/more/new_request.html": {
@@ -531,7 +585,12 @@
 			"css/mui.dtpicker.css",
 			"css/mui.poppicker.css",
 			"css/mui.picker.css",
-			"js/mui.dtpicker.js"
+			"js/mui.dtpicker.js",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"view/more/request_person.html"
 		]
 	},
 	"view/more/new_notepad.html": {
@@ -597,7 +656,8 @@
 	"view/task/new_task.html": {
 		"resources": [
 			"images/Assets.xcassets/+.imageset/+@2x.png",
-			"css/mui.min.css"
+			"css/mui.min.css",
+			"js/mui.min.js"
 		]
 	},
 	"view/more/notepad_detail.html": {
@@ -613,7 +673,12 @@
 			"css/mui.min.css",
 			"css/mui.cropper.css",
 			"js/cropper.min.js",
-			"js/mui.cropper.js"
+			"js/mui.cropper.js",
+			"js/new_picture.js",
+			"view/more/new_picture.html"
+		],
+		"refer": [
+			"view/more/new_picture.html"
 		]
 	},
 	"task_main.html": {
@@ -631,7 +696,8 @@
 	"tabbar.html": {
 		"resources": [
 			"images/Assets.xcassets/Tabbar/tabbar_add.imageset/tabbar_add@2x.png",
-			"css/mui.min.css"
+			"css/mui.min.css",
+			"fonts/mui.ttf"
 		],
 		"refer": [
 			"view/more/more.html"
@@ -641,7 +707,11 @@
 		"resources": [
 			"css/mui.min.css",
 			"images/Assets.xcassets/AppIcon.appiconset/logo_58.png",
-			"images/icon/tabbar_image.png"
+			"images/icon/tabbar_image.png",
+			"fonts/mui.ttf"
+		],
+		"refer": [
+			"view/task/new_task.html"
 		]
 	},
 	"view/more/day_paper_detail.html": {
@@ -649,7 +719,8 @@
 			"js/mui.min.js",
 			"images/Assets.xcassets/comment.imageset/comment@2x.png",
 			"css/mui.min.css",
-			"images/Assets.xcassets/AppIcon.appiconset/logo_80.png"
+			"images/Assets.xcassets/AppIcon.appiconset/logo_80.png",
+			"js/day_paper_detail.js"
 		]
 	},
 	"view/dynamics/new_dynamics.html": {
@@ -693,6 +764,141 @@
 		]
 	},
 	"view/company/article.html": {
+		"resources": [
+			"css/mui.min.css",
+			"js/mui.min.js"
+		]
+	},
+	"view/company/day_paper_sub.html": {
+		"resources": [
+			"js/day_paper.js",
+			"css/mui.min.css",
+			"js/mui.min.js"
+		],
+		"refer": [
+			"view/company/day_paper_detail.html"
+		]
+	},
+	"view/company/day_paper_main.html": {
+		"resources": [
+			"css/mui.min.css",
+			"view/company/day_paper_sub.html",
+			"js/mui.min.js"
+		],
+		"refer": [
+			"view/company/day_paper_sub.html",
+			"view/company/new_day_paper.html"
+		]
+	},
+	"view/company/new_day_paper.html": {
+		"resources": [
+			"images/Assets.xcassets/+.imageset/+@2x.png",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"js/new_day_paper.js"
+		]
+	},
+	"view/company/week_paper_main.html": {
+		"resources": [
+			"js/mui.min.js",
+			"view/company/week_paper_sub.html",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"view/company/week_paper_sub.html"
+		]
+	},
+	"view/company/week_paper_sub.html": {
+		"resources": [
+			"css/mui.min.css",
+			"js/week_paper.js"
+		]
+	},
+	"view/more/sign.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css"
+		]
+	},
+	"view/company/request_sub.html": {
+		"resources": [
+			"js/request.js",
+			"images/lunbo1.jpg",
+			"css/mui.min.css",
+			"js/mui.min.js"
+		],
+		"refer": [
+			"view/company/request_detail.html"
+		]
+	},
+	"view/company/request_main.html": {
+		"resources": [
+			"view/company/request_sub.html",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"view/company/request_sub.html"
+		]
+	},
+	"view/company/request_detail.html": {
+		"resources": [
+			"images/Assets.xcassets/comment.imageset/comment@2x.png",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"images/Assets.xcassets/AppIcon.appiconset/logo_80.png"
+		]
+	},
+	"view/company/sign.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css"
+		]
+	},
+	"view/company/pictrue_sub.html": {
+		"resources": [
+			"js/picture.js",
+			"css/mui.min.css"
+		]
+	},
+	"view/company/pictrue_main.html": {
+		"resources": [
+			"view/company/pictrue_sub.html",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"view/company/pictrue_sub.html"
+		]
+	},
+	"view/company/day_paper_detail.html": {
+		"resources": [
+			"js/mui.min.js",
+			"images/Assets.xcassets/comment.imageset/comment@2x.png",
+			"css/mui.min.css",
+			"images/Assets.xcassets/AppIcon.appiconset/logo_80.png",
+			"js/day_paper_detail.js"
+		]
+	},
+	"view/mine/scan.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css"
+		]
+	},
+	"view/more/new_finance.html": {
+		"resources": [
+			"js/mui.picker.js",
+			"js/mui.min.js",
+			"js/mui.poppicker.js",
+			"css/mui.dtpicker.css",
+			"css/mui.min.css",
+			"css/mui.poppicker.css",
+			"css/mui.picker.css",
+			"js/mui.dtpicker.js"
+		]
+	},
+	"view/more/request_person.html": {
 		"resources": [
 			"css/mui.min.css",
 			"js/mui.min.js"

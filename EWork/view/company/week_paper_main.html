@@ -27,11 +27,10 @@
 		<header class="mui-bar mui-bar-nav">
 			<div class="mui-icon mui-action-back mui-icon-arrowleft mui-icon-back mui-badge-primary mui-badge-inverted"><span>返回</span></div>
 			<h1 id="title" class="mui-title mui-badge-primary mui-badge-inverted">周报</h1>
-			<div id="add" class="mui-icon mui-icon-compose"></div>
+			<!--<div id="add" class="mui-icon mui-icon-compose"></div>-->
 		</header>
 		<div class="mui-content"></div>
 	</body>
-	<script type="text/javascript" src="../../js/week_paper.js" ></script>
 	<script type="text/javascript">
 		//启用双击监听
 		mui.init({
@@ -47,12 +46,12 @@
 				}
 			}]
 		});
-		document.getElementById('add').onclick=function(){
-			mui.openWindow({
-				url:'new_week_paper.html',
-			});
-		}
-	
+//		document.getElementById('add').onclick=function(){
+//			mui.openWindow({
+//				url:'new_week_paper.html',
+//			});
+//		}
+
 		var contentWebview = null;
 		document.querySelector('header').addEventListener('doubletap', function() {
 			if(contentWebview == null) {

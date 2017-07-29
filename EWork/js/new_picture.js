@@ -1,25 +1,28 @@
-var url = 'http://121.42.29.124/workoa/index.php?s=/Api/Search/sendMoments/';
+var url = 'http://121.42.29.124/workoa/index.php?s=/Api/Picture/addpicture';
 
 var task;
 var photos = [];
+var companyId = localStorage.getItem('companyId');
 var this_phoneNum = localStorage.getItem('phoneNum');
 
 var finish = document.getElementById('finish');
-var max = 9; //照片的最大数目
+var max = 1; //照片的最大数目
 var photosNum;
 var camera_photos = [];
 var gallery_photos = [];
-
+ 
 function createUploader() {
 	task = plus.uploader.createUpload(url, {
 		method: 'POST'
 	}, function(data, status) {
+		//mui.alert(JSON.stringify(data));
 		if(status == 200) {
+			
 			plus.nativeUI.closeWaiting();
-			var page = plus.webview.getWebviewById('view/dynamics/dynamics.html');
+			var page = plus.webview.getWebviewById('pictrue_sub.html');
 			mui.fire(page, 'refresh', {});
 			mui.openWindow({
-				id: 'index.html'
+				id: 'pictrue_main.html',
 			});
 		} else {
 			mui.alert(status);
@@ -30,22 +33,26 @@ function createUploader() {
 
 finish.addEventListener('tap', function() {
 	var files;
-	var content = document.getElementById('content').value;
-	//	var img = document.getElementById('image').getAttribute('src');
+	var title = document.getElementById('title').value;
+	var content = document.getElementById('content').value;  
+	 
 	var len = photos.length;
-	task.addData('objectID', this_phoneNum);
-	task.addData('describe', content);
-	task.addData('position', "");
-	task.addData('num', '' + len);
-	for(var i = 0; i < len; i++) {
-		var j = i + 1;
-		var temp = 'phone' + j;
+	task.addData('userid', this_phoneNum); 
+	task.addData('companyid', companyId);
+	task.addData('jingdu', '');
+	task.addData('weidu', '');
+	task.addData('address','');//地址获取存在问题，先搁置
+	task.addData('title',title);
+	task.addData('content',content); 
+
+	for(var i = 0; i < len; i++) { 
+		var temp = 'picture';
 		task.addFile(photos[i].path, {
 			key: temp
 		});
 	}
 	task.start();
-	plus.nativeUI.showWaiting();
+	plus.nativeUI.showWaiting(); 
 });
 
 //从相机中选取图片

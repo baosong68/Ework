@@ -59,43 +59,43 @@
 	<body>
 
 		<div id="pullrefresh" class="mui-content">
-			<ul class="mui-table-view mui-grid-view">
-				<li class="mui-table-view-cell mui-media mui-col-xs-3">
-					<a href="#">
-						<img class="mui-media-object" src="../../images/tabbar_log.png">
-						<div class="mui-media-body">日报</div>
-					</a>
-				</li>
-				<li class="mui-table-view-cell mui-media mui-col-xs-3">
-					<a href="#">
-						<img class="mui-media-object" src="../../images/tabbar_weekly.png">
-						<div class="mui-media-body">周报</div>
-					</a>
-				</li>
-				<li class="mui-table-view-cell mui-media mui-col-xs-3">
-					<a href="#">
-						<img class="mui-media-object" src="../../images/tabbar_timeoff.png">
-						<div class="mui-media-body">请示</div>
-					</a>
-				</li>
-				<li class="mui-table-view-cell mui-media mui-col-xs-3">
-					<a href="#">
-						<img class="mui-media-object" src="../../images/tabbar_attend.png">
-						<div class="mui-media-body">签到打卡</div>
-					</a>
-				</li>
-				<li class="mui-table-view-cell mui-media mui-col-xs-3">
-					<a href="#">
-						<img class="mui-media-object" src="../../images/tabbar_audit.png">
-						<div class="mui-media-body">公司公告</div>
-					</a>
-				</li>
-				<li class="mui-table-view-cell mui-media mui-col-xs-3">
-					<a href="#">
-						<img class="mui-media-object" src="../../images/tabbar_image.png">
-						<div class="mui-media-body">图片</div>
-					</a>
-				</li>
+			<ul id="works" class="mui-table-view mui-grid-view">
+				<li id="day_paper" class="mui-table-view-cell mui-media mui-col-xs-3">
+						<a href="#">
+							<img class="mui-media-object" src="../../images/tabbar_log.png">
+							<div class="mui-media-body">日报</div>
+						</a>
+					</li>
+					<li id="week_paper" class="mui-table-view-cell mui-media mui-col-xs-3">
+						<a href="#">
+							<img class="mui-media-object" src="../../images/tabbar_weekly.png">
+							<div class="mui-media-body">周报</div>
+						</a>
+					</li>
+					<li id="request" class="mui-table-view-cell mui-media mui-col-xs-3">
+						<a href="#">
+							<img class="mui-media-object" src="../../images/tabbar_timeoff.png">
+							<div class="mui-media-body">请示</div>
+						</a>
+					</li>
+					<li id="sign" class="mui-table-view-cell mui-media mui-col-xs-3">
+						<a href="#">
+							<img class="mui-media-object" src="../../images/tabbar_attend.png">
+							<div class="mui-media-body">签到打卡</div>
+						</a>
+					</li>
+					<li id="company_notice" class="mui-table-view-cell mui-media mui-col-xs-3">
+						<a href="#">
+							<img class="mui-media-object" src="../../images/tabbar_audit.png">
+							<div class="mui-media-body">公司公告</div>
+						</a>
+					</li>
+					<li id="picture" class="mui-table-view-cell mui-media mui-col-xs-3">
+						<a href="#">
+							<img class="mui-media-object" src="../../images/tabbar_image.png">
+							<div class="mui-media-body">图片</div>
+						</a>
+					</li>
 			</ul>
 
 			<div class="text">公司公告</div>
@@ -168,6 +168,36 @@
 		mui.plusReady(function() {
 			pulldownRefresh();
 		})
+		mui("#works").on('tap', '.mui-table-view-cell', function() {
+			var id = this.getAttribute('id');
+			var target; 
+			switch(id) {
+				case 'week_paper':
+					target = '../company/week_paper_main.html';
+					break;
+				case 'day_paper':
+					target = '../company/day_paper_main.html';
+					break;
+				case 'picture':
+					target = '../company/pictrue_main.html';
+					break;
+				case 'sign':
+					target = '../company/sign.html';
+					break;
+				case 'request':
+					target = '../company/request_main.html';
+					break; 
+				case 'company_notice':
+					target = 'company_notice_main.html';
+			}
+			mui.openWindow({
+				url: target,
+				
+			});
+		});
+		
+		
+		
 		
 		
 		var articles_result;
@@ -209,18 +239,20 @@
 		}
 		//为文章添加点击事件
 		mui('#articles').on('tap','.mui-table-view-cell',function(){
+		 
 			var id = this.getAttribute('id');
 			var article_url;
 			for(var i=0;i<articles_result.length;i++){
 				if(articles_result[i].id==id){
 					article_url = articles_result[i].url;
 				}
-			}
+			} 
 			localStorage.setItem('url',article_url);
 			mui.openWindow({
-				id:'article.html',
-				url:'article.html', 
-			})
+				url: 'article.html',
+				id:'article.html'
+				
+			});
 		})
 
 		/**
@@ -229,7 +261,7 @@
 		function pullupRefresh() {
 		 
 			mui('#pullrefresh').pullRefresh().endPullupToRefresh(); //refresh completed  
-		 	mui.alert("")
+		 	mui.toast("已经到底了");
 		}
 	</script>
 

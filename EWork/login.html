@@ -54,13 +54,13 @@
 					<label>密码</label>
 					<input id="password" type="password" class="mui-input-password" placeholder="请输入密码" />
 				</div>
-
 			</form>
 			<button type="button" id="login" class="mui-btn-block mui-btn mui-btn-primary"><span>登录</span></button>
 			<div id="forget" class="forgetPassword">忘记密码</div>
 
 		</div>
 	</body>
+	<script type="text/javascript" src="js/userInfo.js" ></script>
 
 	<script type="text/javascript" charset="UTF-8">
 		mui.init({
@@ -68,6 +68,9 @@
 				url: 'index.html',
 				id: 'index.html'
 			}]
+		});
+		mui.plusReady(function(){
+			
 		});
 		document.getElementById('account').value = localStorage.getItem('phoneNum');
 		
@@ -79,13 +82,16 @@
 		login.addEventListener('tap', function() {
 			account = document.getElementById('account').value;
 			password = document.getElementById('password').value;
- 
+ 			
 			password = hex_md5(password);
 			request_login(account, password);
+			
 		});
-		//登录请求
+		
+		//登录请求  
 		function request_login(account, password) {
 			mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/Login/login/', {
+				
 				data: {
 					phoneNum: account,
 					pwd: password,
@@ -94,27 +100,30 @@
 				type: 'post',
 				timeout: 10000,
 				success: function(data) {
+					
 					if(data.flag == '200') {
 						localStorage.setItem('phoneNum',account);
-						plus.nativeUI.toast("登录成功");
+						getUserInfo();
+						plus.nativeUI.toast("登录成功"); 
+						var indexPage = plus.webview.getWebviewById('index.html');
+						mui.fire(indexPage,'reload_data',{}); 
 						mui.openWindow({
 							url: 'index.html',
 							id:'index.html',
-							extras: {
-								id: data.result.id
-							}
+						 
 						});
 
 					}else{
-						mui.alert("密码错误");
+						mui.toast(data.msg);
 					}
 				},
 				error: function(xhr, type, errorThrown) {
 					//异常处理
-					mui.alert("asd");
+					mui.toast(this.id+"网络异常");
 				}
 			});
 		} 
+	
 		document.getElementById('forget').addEventListener('tap',function(){
 			mui.openWindow({
 				url:'reset_password.html',

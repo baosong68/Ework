@@ -1,25 +1,50 @@
-var url = 'http://121.42.29.124/workoa/index.php?s=/Api/Search/sendMoments/';
+var url = 'http://121.42.29.124/workoa/index.php?s=/Api/Ribao/addribao/';
 
 var task;
 var photos = [];
 var this_phoneNum = localStorage.getItem('phoneNum');
 
 var finish = document.getElementById('finish');
-var max = 9; //照片的最大数目
+var max = 6; //照片的最大数目
 var photosNum;
 var camera_photos = [];
 var gallery_photos = [];
+var companyId;
+function getUserInfo() {
+	mui.ajax('http://121.42.29.124/workoa/index.php?s=/Api/Search/person_info', {
+		data: {
+			phoneNum: this_phoneNum,
+			objectID: this_phoneNum,
+		},
+		dataType: 'json',
+		type: 'post',
+		timeout: 10000,
+		success: function(data) {
+//			var info = JSON.stringify(data);
+//			mui.alert(info);
+			if(data.flag==200){
+				companyId = data.result.companyid;  
+			}
+			
+		},
+		error: function(xhr, type, errorThrown) {
+			mui.alert("无网络连接");
+		}
 
+	});
+}
 function createUploader() {
 	task = plus.uploader.createUpload(url, {
 		method: 'POST'
 	}, function(data, status) {
+		mui.alert(JSON.stringify(data));
 		if(status == 200) {
+			
 			plus.nativeUI.closeWaiting();
-			var page = plus.webview.getWebviewById('view/dynamics/dynamics.html');
+			var page = plus.webview.getWebviewById('day_paper_sub.html');
 			mui.fire(page, 'refresh', {});
 			mui.openWindow({
-				id: 'index.html'
+				id: 'day_paper_main.html',
 			});
 		} else {
 			mui.alert(status);
@@ -30,22 +55,27 @@ function createUploader() {
 
 finish.addEventListener('tap', function() {
 	var files;
-	var content = document.getElementById('content').value;
-	//	var img = document.getElementById('image').getAttribute('src');
+	var finishWork = document.getElementById('finishWork').value;
+	var unfinishWork = document.getElementById('unfinishWork').value;
+	var needHelp = document.getElementById('needHelp').value;
+	var moveInfo = document.getElementById('moveInfo').value;  
+	
+	getUserInfo();
 	var len = photos.length;
-	task.addData('objectID', this_phoneNum);
-	task.addData('describe', content);
-	task.addData('position', "");
-	task.addData('num', '' + len);
-	for(var i = 0; i < len; i++) {
-		var j = i + 1;
-		var temp = 'phone' + j;
+	task.addData('userid', this_phoneNum);
+	task.addData('companyid', companyId);
+	task.addData('finishwork', finishWork);
+	task.addData('unfinishwork', unfinishWork);
+	task.addData('needhelp',needHelp);
+	task.addData('moveinfo',moveInfo);
+	for(var i = 0; i < len; i++) { 
+		var temp = 'picture' + i;
 		task.addFile(photos[i].path, {
 			key: temp
 		});
 	}
 	task.start();
-	plus.nativeUI.showWaiting();
+	plus.nativeUI.showWaiting(); 
 });
 
 //从相机中选取图片

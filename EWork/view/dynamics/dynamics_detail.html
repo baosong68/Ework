@@ -171,12 +171,12 @@
 			<h1 class="mui-title mui-badge-primary mui-badge-inverted">动态详情</h1>
 		</header>
 		<div id="body" class="mui-content">
-			<div class="head">
+			<!--<div class="head">
 				<img class="headImg" src="../../images/lunbo1.jpg" />
 				<div class="username">刘国奇</div>
 			</div>
-			<div class="content">
-				<div id="content_talk" class="talk">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈今天天气很好</div>
+			<div class="content">-->
+				<!--<div id="content_talk" class="talk">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈今天天气很好</div>
 				<div class="date">5月2号</div>
 			</div>
 			<div class="photos">
@@ -228,7 +228,7 @@
 					</div>
 					<div class="comment_date">5月2号</div>
 				</div>
-			</div>
+			</div>-->
 
 		</div>
 	</body>
@@ -244,8 +244,9 @@
 		});
 		var result = [];
 		var id;
-		var this_phoneNum = localStorage.getItem('phoneNum')
+		var this_phoneNum;
 		mui.plusReady(function() {
+			this_phoneNum = localStorage.getItem('phoneNum');
 			var self = plus.webview.currentWebview();
 			id = self.the_id;
 			sendRequest();
